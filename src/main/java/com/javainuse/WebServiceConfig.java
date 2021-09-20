@@ -10,6 +10,7 @@ import org.springframework.ws.config.annotation.WsConfigurerAdapter;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition;
 import org.springframework.ws.wsdl.wsdl11.Wsdl11Definition;
+import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @EnableWs
 @Configuration
@@ -29,5 +30,12 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 		wsdl11Definition.setWsdl(new ClassPathResource("/wsdl/helloworld.wsdl"));
 
 		return wsdl11Definition;
+	}
+	@Bean
+	public Jaxb2Marshaller marshaller() {
+		Jaxb2Marshaller jaxb2Marshaller =new Jaxb2Marshaller ();
+		jaxb2Marshaller.setPackagesToScan("com.javainuse");
+		return jaxb2Marshaller;
+		
 	}
 }
