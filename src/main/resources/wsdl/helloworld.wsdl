@@ -10,17 +10,24 @@
 			<xs:element name="inputSOATest">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element type="xs:string" name="customername" />
+						<xs:element name="employee" type="xs:string"  />
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
 			<xs:element name="outputSOATest">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element type="xs:string" name="result" />
+						<xs:element name="result" type="xs:string"  />
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
+			<xs:complexType name="result">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string"/>
+					<xs:element name="empId" type="xs:int"/>
+					<xs:element name="salary"type="xs:double"/>
+				</xs:sequence> 
+			</xs:complexType>
 		</xs:schema>
 	</wsdl:types>
 
@@ -54,7 +61,7 @@
 
 	<wsdl:service name="SOATestEndpointService">
 		<wsdl:port name="SOATestEndpoint" binding="tns:SOATestBinding">
-			<soap:address location="http://localhost:8080/javainuse/ws/helloworld" />
+			<soap:address location="http://localhost:8081/javainuse/ws/Web" />
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>
